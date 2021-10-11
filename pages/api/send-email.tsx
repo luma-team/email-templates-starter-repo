@@ -5,13 +5,9 @@ import mjml2html from "mjml";
 import * as postmark from "postmark";
 import { SimpleEmail } from "../../components/SimpleEmail";
 
-type Data = {
-  name: string;
-};
-
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse<{ message: string }>
 ) {
   const { email, postmarkApiKey } = req.body;
 
@@ -27,7 +23,6 @@ export default async function handler(
 
     res.status(200).json({ message: "Succeeded" });
   } catch (error: any) {
-    console.error(error.message);
     res
       .status(500)
       .json({ message: error.message || "Hmm, I'm not sure what happened..." });
