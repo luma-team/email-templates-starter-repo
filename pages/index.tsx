@@ -1,11 +1,12 @@
 import axios from "axios";
-import { Field, Form } from "formik";
-import { Formik } from "formik";
+import { Field, Form, Formik } from "formik";
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { githubGist } from "react-syntax-highlighter/dist/esm/styles/hljs";
 import { EmailPreview } from "../components/PreviewEmail";
-import { SimpleEmail } from "../components/SimpleEmail";
+import { SimpleEmail, SimpleEmailCode } from "../components/SimpleEmail";
 
 const Home: NextPage = () => {
   return (
@@ -46,7 +47,15 @@ const Home: NextPage = () => {
           It was incredibly simple to create that email. You can{" "}
           <a href="">find the code here</a> but since it's so short, I'll just
           include it here:
-          <pre>TODO: insert the code here</pre>
+          <div className="mt-4">
+            <SyntaxHighlighter
+              language="javascript"
+              style={githubGist}
+              className={"rounded-lg"}
+            >
+              {SimpleEmailCode}
+            </SyntaxHighlighter>
+          </div>
         </div>
 
         <div className="mt-8">

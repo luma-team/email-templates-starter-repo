@@ -5,6 +5,7 @@ specifiers:
   '@tailwindcss/forms': ^0.3.4
   '@types/mjml': ^4.7.0
   '@types/react': 17.0.27
+  '@types/react-syntax-highlighter': ^13.5.2
   '@types/tailwindcss': ^2.2.1
   autoprefixer: ^10.3.7
   axios: ^0.22.0
@@ -42,6 +43,7 @@ dependencies:
 devDependencies:
   '@types/mjml': 4.7.0
   '@types/react': 17.0.27
+  '@types/react-syntax-highlighter': 13.5.2
   '@types/tailwindcss': 2.2.1
   eslint: 7.32.0
   eslint-config-next: 11.1.2_82ad98da5e129ae9d310451a179848d9
@@ -324,6 +326,12 @@ packages:
 
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
+    dev: true
+
+  /@types/react-syntax-highlighter/13.5.2:
+    resolution: {integrity: sha512-sRZoKZBGKaE7CzMvTTgz+0x/aVR58ZYUTfB7HN76vC+yQnvo1FWtzNARBt0fGqcLGEVakEzMu/CtPzssmanu8Q==}
+    dependencies:
+      '@types/react': 17.0.27
     dev: true
 
   /@types/react/17.0.27:
