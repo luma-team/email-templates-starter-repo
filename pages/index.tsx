@@ -1,13 +1,14 @@
+/* eslint-disable react/no-unescaped-entities */
 import axios, { AxiosError } from "axios";
 import { Field, Form, Formik } from "formik";
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
+import toast from "react-hot-toast";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { EmailPreview } from "../components/PreviewEmail";
 import { SimpleEmail, SimpleEmailCode } from "../components/SimpleEmail";
-import toast, { Toaster } from "react-hot-toast";
 
 const Home: NextPage = () => {
   return (
@@ -30,8 +31,21 @@ const Home: NextPage = () => {
           </h1>
 
           <div>
-            <a href="https://blog_link.com">Blog Post</a> &middot;{" "}
-            <a href="github_link">GitHub Repo</a>
+            <a
+              href="https://lu.ma/p/6a4w1VcZjLwLYaH/Write-Beautiful-Emails-in-React"
+              target={"_blank"}
+              rel={"noreferrer"}
+            >
+              Blog Post
+            </a>{" "}
+            &middot;{" "}
+            <a
+              href="https://github.com/luma-team/email-templates-starter-repo"
+              target={"_blank"}
+              rel={"noreferrer"}
+            >
+              GitHub Repo
+            </a>
           </div>
         </div>
 
@@ -122,6 +136,7 @@ const SendEmailForm = () => {
               href="https://postmarkapp.com/"
               target={"_blank"}
               className={"text-red-500 hover:text-red-600"}
+              rel={"noreferrer"}
             >
               Postmark account
             </a>{" "}
