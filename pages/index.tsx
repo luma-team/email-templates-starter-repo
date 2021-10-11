@@ -1,3 +1,4 @@
+import axios from "axios";
 import { Field, Form } from "formik";
 import { Formik } from "formik";
 import type { NextPage } from "next";
@@ -8,7 +9,7 @@ import { SimpleEmail } from "../components/SimpleEmail";
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-gray-100 min-h-screen	">
+    <div className="bg-gray-100 min-h-screen">
       <Head>
         <title>Email Templates — Starter Repo</title>
         <meta
@@ -17,9 +18,12 @@ const Home: NextPage = () => {
         />
       </Head>
 
-      <main className="container px-5 py-4 mx-auto " style={{ maxWidth: 600 }}>
+      <main
+        className="container px-5 pt-4 pb-16 mx-auto "
+        style={{ maxWidth: 600 }}
+      >
         <div>
-          <h1 className="text-2xl font-bold mb-4">
+          <h1 className="text-2xl font-bold mb-4 mt-0">
             Write Beautiful Email Templates in React
           </h1>
 
@@ -72,42 +76,56 @@ const SendEmailForm = () => {
   return (
     <Formik
       initialValues={{ email: "", postmarkApiKey: "" }}
-      onSubmit={async (values) => {
-        console.log(values);
+      onSubmit={async ({ email, postmarkApiKey }) => {
+        await axios.post("/api/send-email", {
+          email,
+          postmarkApiKey,
+        });
       }}
     >
-      <Form>
-        <p>You can</p>
+      {({ isSubmitting }) => (
+        <Form>
+          <p>
+            You can test this out by creating a{" "}
+            <a
+              href="https://postmarkapp.com/"
+              target={"_blank"}
+              className={"text-red-500 hover:text-red-600"}
+            >
+              Postmark account
+            </a>{" "}
+            and pasting your server's API Key below.
+          </p>
 
-        <div className="mb-4">
-          <div className={"font-medium mb-1"}>Your Postmark API Key</div>
-          <Field
-            name={"postmarkApiKey"}
-            type={"text"}
-            className={"rounded p-1 w-60"}
-            placeholder={"xxyy"}
-          />
-        </div>
+          <div className="mb-4">
+            <div className={"font-medium mb-1"}>Your Postmark API Token</div>
+            <Field
+              name={"postmarkApiKey"}
+              type={"text"}
+              className={"rounded-lg p-2 w-60 font-mono"}
+              placeholder={"e1fe3827-·····"}
+            />
+          </div>
 
-        <div className={"mb-4"}>
-          <div className={"font-medium mb-1"}>Send Preview To</div>
-          <Field
-            name={"email"}
-            type={"email"}
-            placeholder={"my@email.com"}
-            className={"rounded p-1 w-60"}
-          />
-        </div>
+          <div className={"mb-4"}>
+            <div className={"font-medium mb-1"}>Send Preview To</div>
+            <Field
+              name={"email"}
+              type={"email"}
+              placeholder={"my@email.com"}
+              className={"rounded-lg p-2 w-60"}
+            />
+          </div>
 
-        <button
-          type={'submit'}
-          className={
-            "bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition-all"
-          }
-        >
-          Send an Email
-        </button>
-      </Form>
+          <button
+            type={"submit"}
+            className={"btn-solid"}
+            disabled={isSubmitting}
+          >
+            Send an Email
+          </button>
+        </Form>
+      )}
     </Formik>
   );
 };

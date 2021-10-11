@@ -6,9 +6,13 @@ import { BaseEmail } from "./BaseEmail";
 export const SimpleEmail = () => {
   return (
     <BaseEmail>
-      <MjmlText>Here is a very simple email with a button.</MjmlText>
+      <MjmlText>
+        <p>Dear Mr. Pontis,</p>
 
-      <MjmlButton href={"https://lu.ma"} paddingTop={32} align={'left'}>
+        <p>Here is a very simple email with a button.</p>
+      </MjmlText>
+
+      <MjmlButton href={"https://lu.ma"} align={"left"}>
         Click Me!
       </MjmlButton>
     </BaseEmail>

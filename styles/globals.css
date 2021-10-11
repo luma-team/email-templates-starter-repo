@@ -8,6 +8,12 @@ body {
 
 a {
   text-decoration: none;
+  @apply text-red-500 hover:text-red-600;
+}
+
+.btn-solid {
+  line-height: 1;
+  @apply bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-6 rounded-lg transition-all;
 }
 
 * {

@@ -15,6 +15,7 @@ import {
   MjmlStyle,
 } from "@luma-team/mjml-react";
 import React from "react";
+import colors from "tailwindcss/colors";
 
 export namespace MjmlConstants {
   export const BODY_WIDTH = 600;
@@ -23,23 +24,9 @@ export namespace MjmlConstants {
 }
 
 namespace Colors {
-  export const DIVIDER_COLOR = "#ebeced";
-
-  export const PRIMARY_COLOR = "#131517";
-  export const SECONDARY_COLOR = "#737577";
-  export const TERTIARY_COLOR = "#b3b5b7";
-
-  export const PRIMARY_BG_COLOR = "#ffffff";
-  export const SECONDARY_BG_COLOR = "#f4f5f6";
-
-  export const DARK_PRIMARY_BG_COLOR = "#131517";
-  export const DARK_SECONDARY_BG_COLOR = "#212325";
-
-  export const CALENDAR_RED = "#d86156";
-
-  export const BORDER_COLOR = "#ebeced";
-
-  export const BRAND_COLOR = "#de3163";
+  export const DIVIDER_COLOR = colors.gray['200'];
+  export const PRIMARY_COLOR = colors.gray["900"];
+  export const BRAND_COLOR = colors.red["500"];
 }
 
 export const BaseEmail = ({ children }: { children: React.ReactNode }) => {
