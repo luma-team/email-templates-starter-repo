@@ -1,12 +1,13 @@
-import axios from "axios";
+import axios, { AxiosError } from "axios";
 import { Field, Form, Formik } from "formik";
 import type { NextPage } from "next";
 import Head from "next/head";
 import React from "react";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { githubGist } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { githubGist } from "react-syntax-highlighter/dist/cjs/styles/hljs";
 import { EmailPreview } from "../components/PreviewEmail";
 import { SimpleEmail, SimpleEmailCode } from "../components/SimpleEmail";
+import toast, { Toaster } from "react-hot-toast";
 
 const Home: NextPage = () => {
   return (
@@ -86,10 +87,31 @@ const SendEmailForm = () => {
     <Formik
       initialValues={{ email: "", postmarkApiKey: "" }}
       onSubmit={async ({ email, postmarkApiKey }) => {
-        await axios.post("/api/send-email", {
-          email,
-          postmarkApiKey,
-        });
+        if (!email.trim() || !postmarkApiKey.trim()) {
+          return;
+        }
+
+        const toastId = toast.loading("Sending...");
+
+        try {
+          await axios.post("/api/send-email", {
+            email,
+            postmarkApiKey,
+          });
+          toast.success("Email sent!", {
+            id: toastId,
+          });
+        } catch (error) {
+          const axiosError = error as AxiosError;
+
+          toast.error(
+            axiosError.response?.data["message"] ||
+              "There was a problem sending the email...",
+            {
+              id: toastId,
+            }
+          );
+        }
       }}
     >
       {({ isSubmitting }) => (

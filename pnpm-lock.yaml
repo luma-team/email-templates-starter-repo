@@ -5,6 +5,7 @@ specifiers:
   '@tailwindcss/forms': ^0.3.4
   '@types/mjml': ^4.7.0
   '@types/react': 17.0.27
+  '@types/react-dom': ^17.0.9
   '@types/react-syntax-highlighter': ^13.5.2
   '@types/tailwindcss': ^2.2.1
   autoprefixer: ^10.3.7
@@ -20,6 +21,7 @@ specifiers:
   prettier: ^2.4.1
   react: 17.0.2
   react-dom: 17.0.2
+  react-hot-toast: ^2.1.1
   react-syntax-highlighter: ^15.4.4
   tailwindcss: ^2.2.16
   typescript: 4.4.3
@@ -37,12 +39,14 @@ dependencies:
   postmark: 2.7.8
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
+  react-hot-toast: 2.1.1_react-dom@17.0.2+react@17.0.2
   react-syntax-highlighter: 15.4.4_react@17.0.2
   tailwindcss: 2.2.16_96f83969316717847b3edf58a3f353f3
 
 devDependencies:
   '@types/mjml': 4.7.0
   '@types/react': 17.0.27
+  '@types/react-dom': 17.0.9
   '@types/react-syntax-highlighter': 13.5.2
   '@types/tailwindcss': 2.2.1
   eslint: 7.32.0
@@ -326,6 +330,12 @@ packages:
 
   /@types/prop-types/15.7.4:
     resolution: {integrity: sha512-rZ5drC/jWjrArrS8BR6SIr4cWpW09RNTYt9AMZo3Jwwif+iacXAqgVjm0B0Bv/S1jhDXKHqRVNCbACkJ89RAnQ==}
+    dev: true
+
+  /@types/react-dom/17.0.9:
+    resolution: {integrity: sha512-wIvGxLfgpVDSAMH5utdL9Ngm5Owu0VsGmldro3ORLXV8CShrL8awVj06NuEXFQ5xyaYfdca7Sgbk/50Ri1GdPg==}
+    dependencies:
+      '@types/react': 17.0.27
     dev: true
 
   /@types/react-syntax-highlighter/13.5.2:
@@ -1915,6 +1925,12 @@ packages:
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
+
+  /goober/2.0.41:
+    resolution: {integrity: sha512-kwjegMT5018zWydhOQlQneCgCtrKJaPsru7TaBWmTYV0nsMeUrM6L6O8JmNYb9UbPMgWcmtf+9p4Y3oJabIH1A==}
+    peerDependencies:
+      csstype: ^2.6.2
+    dev: false
 
   /graceful-fs/4.2.8:
     resolution: {integrity: sha512-qkIilPUYcNhJpd33n0GBXTB1MMPp14TxEsEs0pTrsSVucApsYzW5V+Q8Qxhik6KU3evy+qkAAowTByymK0avdg==}
@@ -3635,6 +3651,20 @@ packages:
 
   /react-fast-compare/2.0.4:
     resolution: {integrity: sha512-suNP+J1VU1MWFKcyt7RtjiSWUjvidmQSlqu+eHslq+342xCbGTYmC0mEhPCOHxlW0CywylOC1u2DFAT+bv4dBw==}
+    dev: false
+
+  /react-hot-toast/2.1.1_react-dom@17.0.2+react@17.0.2:
+    resolution: {integrity: sha512-Odrp4wue0fHh0pOfZt5H+9nWCMtqs3wdlFSzZPp7qsxfzmbE26QmGWIh6hG43CukiPeOjA8WQhBJU8JwtWvWbQ==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      goober: 2.0.41
+      react: 17.0.2
+      react-dom: 17.0.2_react@17.0.2
+    transitivePeerDependencies:
+      - csstype
     dev: false
 
   /react-is/16.13.1:
