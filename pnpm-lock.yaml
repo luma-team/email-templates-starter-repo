@@ -2,6 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@luma-team/mjml-react': ^0.0.4
+  '@segment/snippet': ^4.15.3
   '@tailwindcss/forms': ^0.3.4
   '@types/mjml': ^4.7.0
   '@types/react': 17.0.27
@@ -28,6 +29,7 @@ specifiers:
 
 dependencies:
   '@luma-team/mjml-react': 0.0.4_react-dom@17.0.2+react@17.0.2
+  '@segment/snippet': 4.15.3
   '@tailwindcss/forms': 0.3.4_tailwindcss@2.2.16
   autoprefixer: 10.3.7_postcss@8.3.9
   axios: 0.22.0
@@ -180,6 +182,22 @@ packages:
     resolution: {integrity: sha512-jDJTpta+P4p1NZTFVLHJ/TLFVYVcOqv6l8xwOeBKNPMgY/zDYH/YH7SJbvrr/h1RcS9GzbPcLKGzpuK9cV56UA==}
     dev: false
 
+  /@ndhoule/each/2.0.1:
+    resolution: {integrity: sha1-u+03KmA+BxOjGTxwanPd68W0Jqk=}
+    dependencies:
+      '@ndhoule/keys': 2.0.0
+    dev: false
+
+  /@ndhoule/keys/2.0.0:
+    resolution: {integrity: sha1-PWSuZ3xlomF0e/OkV8YuspKk4M4=}
+    dev: false
+
+  /@ndhoule/map/2.0.1:
+    resolution: {integrity: sha1-9coKR0JOpn9G4qbUmbnpvIhq76g=}
+    dependencies:
+      '@ndhoule/each': 2.0.1
+    dev: false
+
   /@next/env/11.1.2:
     resolution: {integrity: sha512-+fteyVdQ7C/OoulfcF6vd1Yk0FEli4453gr8kSFbU8sKseNSizYq6df5MKz/AjwLptsxrUeIkgBdAzbziyJ3mA==}
     dev: false
@@ -290,6 +308,12 @@ packages:
   /@rushstack/eslint-patch/1.0.7:
     resolution: {integrity: sha512-3Zi2LGbCLDz4IIL7ir6wD0u/ggHotLkK5SlVzFzTcYaNgPR4MAt/9JYZqXWKcofPWEoptfpnCJU8Bq9sxw8QUg==}
     dev: true
+
+  /@segment/snippet/4.15.3:
+    resolution: {integrity: sha512-75kVTYaQGYMkwVjJvCLLOlzxV8jCDxvKG68U88joo/rBx95SIXETcjUmIXF6A7SFRCgz83B+zrZbo+JYsmHkig==}
+    dependencies:
+      '@ndhoule/map': 2.0.1
+    dev: false
 
   /@tailwindcss/forms/0.3.4_tailwindcss@2.2.16:
     resolution: {integrity: sha512-vlAoBifNJUkagB+PAdW4aHMe4pKmSLroH398UPgIogBFc91D2VlHUxe4pjxQhiJl0Nfw53sHSJSQBSTQBZP3vA==}
