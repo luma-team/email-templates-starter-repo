@@ -12,8 +12,16 @@ export const EmailPreview = ({
   // because it relies on window
   useEffect(() => {
     const render = async () => {
-      // @ts-ignore
-      const { default: mjml2html } = await import("mjml-browser");
+      let mjml2html: (mjml: string, options: any) => { html: string };
+      if (typeof window === "undefined") {
+        // @ts-ignore
+        const { default: _mjml2html } = await import("mjml-browser");
+        mjml2html = _mjml2html;
+      } else {
+        // @ts-ignore
+        const { default: _mjml2html } = await import("mjml-browser");
+        mjml2html = _mjml2html;
+      }
 
       const mjmlString = renderToMjml(emailComponent);
 
@@ -28,15 +36,17 @@ export const EmailPreview = ({
   }, [emailComponent]);
 
   return (
-    <div>
-      {html && (
+    <>
+      {html ? (
         <div
           key={html}
           dangerouslySetInnerHTML={{
             __html: html,
           }}
         />
+      ) : (
+        <div style={{ height: 235 }} />
       )}
-    </div>
+    </>
   );
 };

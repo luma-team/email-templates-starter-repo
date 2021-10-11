@@ -24,7 +24,7 @@ export namespace MjmlConstants {
 }
 
 namespace Colors {
-  export const DIVIDER_COLOR = colors.gray['200'];
+  export const DIVIDER_COLOR = colors.gray["200"];
   export const PRIMARY_COLOR = colors.gray["900"];
   export const BRAND_COLOR = colors.red["500"];
 }
@@ -50,12 +50,8 @@ export const BaseEmail = ({ children }: { children: React.ReactNode }) => {
             }
 
             p {
-              margin: 16px 0;
-            }
-
-            p.small {
-              font-size: 14px;
-              margin-bottom: 8px;
+              margin-top: 0;
+              margin-bottom: 16px;
             }
           `}
         </MjmlStyle>
