@@ -52,7 +52,7 @@ const Home: NextPage = () => {
         <h3 className="text-xl font-bold mb-4 mt-8">Example Email</h3>
         <div
           style={{ marginLeft: -16, marginRight: -16 }}
-          className={"bg-white rounded-lg email-container"}
+          className={"bg-white rounded-lg email-container overflow-hidden"}
         >
           <EmailPreview emailComponent={<SimpleEmail />} />
         </div>
